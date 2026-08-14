@@ -33,10 +33,27 @@ namespace osu.Game.Rulesets.Constellations.Objects.Drawables
         {
         }
 
+        protected override DrawableHitObject CreateNestedHitObject(HitObject hitObject)
+        {
+            if (hitObject is TraceTick tick)
+                return new DrawableTraceTick(tick);
+
+            return base.CreateNestedHitObject(hitObject);
+        }
+
         [BackgroundDependencyLoader]
         private void load()
         {
             Origin = Anchor.Centre;
+
+            var traceLine = (TraceLine)HitObject;
+
+            // Получаем точки из SliderPath через ControlPoints
+            var pathPoints = new List<Vector2>();
+            foreach (var controlPoint in traceLine.Path.ControlPoints)
+            {
+                pathPoints.Add(traceLine.Position + controlPoint.Position);
+            }
 
             AddRangeInternal(new Drawable[]
             {
@@ -44,27 +61,11 @@ namespace osu.Game.Rulesets.Constellations.Objects.Drawables
                 {
                     PathRadius = 3,
                     Colour = Color4.White,
-                    // Generate path from the slider path
-                    RelativeSizeAxes = Axes.Both,
+                    Vertices = pathPoints.ToArray(),
+                    RelativeSizeAxes = Axes.None,
                 },
                 TraceLineInputManager = new TraceLineInputManager(this),
             });
-        }
-
-        /// <summary>
-        /// Generates points along the slider path using PositionAt.
-        /// </summary>
-        private List<Vector2> GeneratePathPoints(SliderPath path, int pointCount)
-        {
-            var points = new List<Vector2>();
-
-            for (int i = 0; i <= pointCount; i++)
-            {
-                double progress = (double)i / pointCount;
-                points.Add(path.PositionAt(progress));
-            }
-
-            return points;
         }
 
         protected override void Update()

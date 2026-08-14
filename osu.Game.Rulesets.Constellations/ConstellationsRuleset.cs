@@ -40,10 +40,7 @@ namespace osu.Game.Rulesets.Constellations
             switch (type)
             {
                 case ModType.Automation:
-                    return new[] { new ConstellationsModAutoplay() };
-
-                case ModType.DifficultyReduction:
-                    return new[] { new ConstellationsModRelax() };
+                    return new Mod[] { new ConstellationsModAutoplay(), new ConstellationsModRelax() };
 
                 default:
                     return Array.Empty<Mod>();

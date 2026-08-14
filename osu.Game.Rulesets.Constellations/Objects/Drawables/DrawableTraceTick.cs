@@ -26,12 +26,16 @@ namespace osu.Game.Rulesets.Constellations.Objects.Drawables
         {
             Size = new Vector2(8);
             Origin = Anchor.Centre;
+        }
 
-            InternalChild = new Circle
+        protected override void LoadComplete()
+        {
+            base.LoadComplete();
+            AddInternal(new Circle
             {
                 RelativeSizeAxes = Axes.Both,
                 Colour = Color4.White,
-            };
+            });
         }
 
         protected override void CheckForResult(bool userTriggered, double timeOffset)

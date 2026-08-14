@@ -6,7 +6,6 @@ using System.Linq;
 using osu.Framework.Localisation;
 using osu.Game.Rulesets.Constellations.Objects;
 using osu.Game.Rulesets.Constellations.Objects.Drawables;
-using osu.Game.Rulesets.Constellations.UI;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
@@ -23,11 +22,8 @@ namespace osu.Game.Rulesets.Constellations.Mods
 
         public override Type[] IncompatibleMods => Array.Empty<Type>();
 
-        private DrawableConstellationsRuleset ruleset = null!;
-
         public void ApplyToDrawableRuleset(DrawableRuleset<ConstellationsHitObject> drawableRuleset)
         {
-            ruleset = (DrawableConstellationsRuleset)drawableRuleset;
         }
 
         public void ApplyToPlayer(Player player)
@@ -43,13 +39,13 @@ namespace osu.Game.Rulesets.Constellations.Mods
                 switch (h)
                 {
                     case DrawableDot dot:
-                        handleDot(dot, time);
+                        handleDot(dot, time, playfield);
                         break;
                 }
             }
         }
 
-        private void handleDot(DrawableDot dot, double time)
+        private void handleDot(DrawableDot dot, double time, Playfield playfield)
         {
             if (dot.Judged)
                 return;
@@ -60,19 +56,17 @@ namespace osu.Game.Rulesets.Constellations.Mods
             if (dot.HitObject.HitWindows == null || !dot.HitObject.HitWindows.CanBeHit(time - dot.HitObject.StartTime))
                 return;
 
-            if (!dot.IsCursorInHitRadius(getCursorPosition(dot)))
+            // Check if cursor exists and is within hit radius
+            var cursor = playfield.Cursor?.ActiveCursor;
+            if (cursor == null)
+                return;
+
+            Vector2 cursorPosition = dot.ToLocalSpace(cursor.ScreenSpaceDrawQuad.Centre);
+
+            if (!dot.IsCursorInHitRadius(cursorPosition))
                 return;
 
             dot.HitForcefully();
-        }
-
-        private Vector2 getCursorPosition(DrawableDot dot)
-        {
-            var cursor = ruleset.Playfield.Cursor?.ActiveCursor;
-            if (cursor == null)
-                return dot.HitObject.StackedPosition;
-
-            return dot.ToLocalSpace(cursor.ScreenSpaceDrawQuad.Centre);
         }
 
         public const float RELAX_LENIENCY = 12;
