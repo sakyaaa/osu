@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "restore": {
+    "/workspace/osu.Game.Rulesets.Constellations/Tests/osu.Game.Rulesets.Constellations.Tests.csproj": {}
+  },
+  "projects": {
+    "/workspace/osu.Game.Rulesets.Constellations/Tests/osu.Game.Rulesets.Constellations.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/workspace/osu.Game.Rulesets.Constellations/Tests/osu.Game.Rulesets.Constellations.Tests.csproj",
+        "projectName": "osu.Game.Rulesets.Constellations.Tests",
+        "projectPath": "/workspace/osu.Game.Rulesets.Constellations/Tests/osu.Game.Rulesets.Constellations.Tests.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/osu.Game.Rulesets.Constellations/Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/workspace/osu.Game.Rulesets.Constellations/osu.Game.Rulesets.Constellations.csproj": {
+                "projectPath": "/workspace/osu.Game.Rulesets.Constellations/osu.Game.Rulesets.Constellations.csproj"
+              },
+              "/workspace/osu.Game/osu.Game.csproj": {
+                "projectPath": "/workspace/osu.Game/osu.Game.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.BannedApiAnalyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.3.4, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.9.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.424/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/workspace/osu.Game.Rulesets.Constellations/osu.Game.Rulesets.Constellations.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/workspace/osu.Game.Rulesets.Constellations/osu.Game.Rulesets.Constellations.csproj",
+        "projectName": "osu.Game.Rulesets.Constellations",
+        "projectPath": "/workspace/osu.Game.Rulesets.Constellations/osu.Game.Rulesets.Constellations.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/osu.Game.Rulesets.Constellations/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/workspace/osu.Game/osu.Game.csproj": {
+                "projectPath": "/workspace/osu.Game/osu.Game.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.BannedApiAnalyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.424/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/workspace/osu.Game/osu.Game.csproj": {
+      "version": "0.0.0",
+      "restore": {
+        "projectUniqueName": "/workspace/osu.Game/osu.Game.csproj",
+        "projectName": "ppy.osu.Game",
+        "projectPath": "/workspace/osu.Game/osu.Game.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/osu.Game/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )",
+              "noWarn": [
+                "NU1903"
+              ]
+            },
+            "DiffPlex": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.12.4, )"
+            },
+            "Humanizer": {
+              "target": "Package",
+              "version": "[2.14.1, )"
+            },
+            "MessagePack": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.CodeAnalysis.BannedApiAnalyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.3.4, )"
+            },
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.Toolkit.HighPerformance": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
+            "Realm": {
+              "target": "Package",
+              "version": "[20.1.0, )"
+            },
+            "SQLitePCLRaw.bundle_e_sqlite3": {
+              "target": "Package",
+              "version": "[3.0.3, )"
+            },
+            "Sentry": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
+            "SharpCompress": {
+              "target": "Package",
+              "version": "[0.49.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.IO.FileSystem.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Runtime.Handles": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Runtime.InteropServices": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "TagLibSharp": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "ppy.LocalisationAnalyser": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2026.611.0, )"
+            },
+            "ppy.osu.Framework": {
+              "target": "Package",
+              "version": "[2026.807.0, )"
+            },
+            "ppy.osu.Game.Resources": {
+              "target": "Package",
+              "version": "[2026.710.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.424/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

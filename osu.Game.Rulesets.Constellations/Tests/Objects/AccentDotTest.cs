@@ -2,6 +2,7 @@
 
 using NUnit.Framework;
 using osu.Game.Rulesets.Constellations.Objects;
+using osu.Game.Rulesets.Constellations.Judgements;
 using osuTK;
 
 namespace osu.Game.Rulesets.Constellations.Tests.Objects

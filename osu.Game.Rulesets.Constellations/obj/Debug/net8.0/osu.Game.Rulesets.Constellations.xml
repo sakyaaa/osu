@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>osu.Game.Rulesets.Constellations</name>
+    </assembly>
+    <members>
+        <member name="T:osu.Game.Rulesets.Constellations.Judgements.ConstellationsHitWindows">
+            <summary>
+            Hit windows for Constellations — Perfect / Great / Good / Miss, analogous to 300/100/50/miss.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Judgements.DotJudgement">
+            <summary>
+            Judgement for a standard <see cref="T:osu.Game.Rulesets.Constellations.Objects.Dot"/>.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Judgements.AccentDotJudgement">
+            <summary>
+            Judgement for an <see cref="T:osu.Game.Rulesets.Constellations.Objects.AccentDot"/> — worth more points.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Judgements.TraceTickJudgement">
+            <summary>
+            Judgement for a nested <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceTick"/> — continuous scoring along a TraceLine.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Mods.ConstellationsModRelax">
+            <summary>
+            Aim-only mod — the cursor auto-hits dots when within the hit radius, no clicking required.
+            </summary>
+        </member>
+        <member name="F:osu.Game.Rulesets.Constellations.Objects.ConstellationsHitObject.HIT_RADIUS">
+            <summary>
+            The radius within which the cursor must be to hit this object.
+            </summary>
+        </member>
+        <member name="F:osu.Game.Rulesets.Constellations.Objects.ConstellationsHitObject.DOT_RADIUS">
+            <summary>
+            The radius of the visual dot itself.
+            </summary>
+        </member>
+        <member name="P:osu.Game.Rulesets.Constellations.Objects.ConstellationsHitObject.StackedPosition">
+            <summary>
+            The stacked position of this object, taking into account stacking.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.Components.DotPiece">
+            <summary>
+            The visual dot itself — a filled circle with a subtle outline.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.Components.HitExplosion">
+            <summary>
+            A brief flash shown when a dot is hit.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.Components.TimingRing">
+            <summary>
+            A ring that shrinks towards the dot as its start time approaches — analogous to an approach circle.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableAccentDot">
+            <summary>
+            A <see cref="T:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableDot"/> with a distinct accent colour and slightly larger visual.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableConstellationsHitObject.IsCursorInHitRadius(osuTK.Vector2)">
+            <summary>
+            Whether the cursor is currently within the hit radius of this object.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableConstellationsHitObject.HitForcefully">
+            <summary>
+            Forcefully applies the maximum result to this object.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableConstellationsHitObject.MissForcefully">
+            <summary>
+            Forcefully applies the minimum result to this object.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableTraceLine">
+            <summary>
+            A drawable representation of a <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceLine"/> — the cursor must trace along its path.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableTraceLine.GeneratePathPoints(osu.Game.Rulesets.Objects.SliderPath,System.Int32)">
+            <summary>
+            Generates points along the slider path using PositionAt.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.DrawableTraceTick">
+            <summary>
+            A small tick along a <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceLine"/> used for continuous scoring.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.Drawables.TraceLineInputManager">
+            <summary>
+            Handles tracking of the cursor along a <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceLine"/> — adapted from <c>SliderInputManager</c>.
+            </summary>
+        </member>
+        <member name="P:osu.Game.Rulesets.Constellations.Objects.Drawables.TraceLineInputManager.Tracking">
+            <summary>
+            Whether the line is currently being tracked.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.TraceLineInputManager.ReceivePositionalInputAt(osuTK.Vector2)">
+            <summary>
+            This component handles all input of the line, so it should receive input no matter the position.
+            </summary>
+        </member>
+        <member name="M:osu.Game.Rulesets.Constellations.Objects.Drawables.TraceLineInputManager.IsMouseInFollowArea">
+            <summary>
+            Whether the mouse is currently in the follow area of the line.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.TraceLine">
+            <summary>
+            A line the cursor must trace along — analogous to a slider.
+            </summary>
+        </member>
+        <member name="F:osu.Game.Rulesets.Constellations.Objects.TraceLine.FOLLOW_RADIUS">
+            <summary>
+            The radius within which the cursor must be to keep tracking the line.
+            </summary>
+        </member>
+        <member name="F:osu.Game.Rulesets.Constellations.Objects.TraceLine.TICK_SPACING">
+            <summary>
+            The spacing between generated <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceTick"/>s.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.Objects.TraceTick">
+            <summary>
+            A nested hit object along a <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceLine"/> used for continuous scoring.
+            </summary>
+        </member>
+        <member name="P:osu.Game.Rulesets.Constellations.Objects.TraceTick.PathProgress">
+            <summary>
+            The progress along the parent <see cref="T:osu.Game.Rulesets.Constellations.Objects.TraceLine"/>'s path at which this tick sits.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.UI.ConnectionLineRenderer">
+            <summary>
+            Renders animated gradient lines between combo-ordered hit objects — the "constellation" effect.
+            </summary>
+        </member>
+        <member name="T:osu.Game.Rulesets.Constellations.UI.ConstellationsCursorContainer">
+            <summary>
+            A hollow ring cursor with an optional trail.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -20,19 +20,19 @@ namespace osu.Game.Rulesets.Constellations.Tests.Judgements
         [Test]
         public void TestHitWindowRanges()
         {
-            Assert.That(_hitWindows.WindowFor(HitResult.Perfect), Is.EqualTo(50));
-            Assert.That(_hitWindows.WindowFor(HitResult.Great), Is.EqualTo(100));
-            Assert.That(_hitWindows.WindowFor(HitResult.Good), Is.EqualTo(150));
-            Assert.That(_hitWindows.WindowFor(HitResult.Miss), Is.EqualTo(200));
+            Assert.That(_hitWindows.WindowFor(HitResult.Perfect), Is.EqualTo(80));
+            Assert.That(_hitWindows.WindowFor(HitResult.Great), Is.EqualTo(140));
+            Assert.That(_hitWindows.WindowFor(HitResult.Good), Is.EqualTo(200));
+            Assert.That(_hitWindows.WindowFor(HitResult.Miss), Is.EqualTo(400));
         }
 
         [Test]
         public void TestResultFor()
         {
-            Assert.That(_hitWindows.ResultFor(25), Is.EqualTo(HitResult.Perfect));
-            Assert.That(_hitWindows.ResultFor(75), Is.EqualTo(HitResult.Great));
-            Assert.That(_hitWindows.ResultFor(125), Is.EqualTo(HitResult.Good));
-            Assert.That(_hitWindows.ResultFor(250), Is.EqualTo(HitResult.None));
+            Assert.That(_hitWindows.ResultFor(40), Is.EqualTo(HitResult.Perfect));
+            Assert.That(_hitWindows.ResultFor(100), Is.EqualTo(HitResult.Great));
+            Assert.That(_hitWindows.ResultFor(170), Is.EqualTo(HitResult.Good));
+            Assert.That(_hitWindows.ResultFor(500), Is.EqualTo(HitResult.None));
         }
     }
 }

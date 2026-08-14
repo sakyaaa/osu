@@ -1,0 +1,15 @@
+/workspace/osu.Game/bin/Debug/net8.0/osu.Game.deps.json
+/workspace/osu.Game/bin/Debug/net8.0/osu.Game.dll
+/workspace/osu.Game/bin/Debug/net8.0/osu.Game.pdb
+/workspace/osu.Game/bin/Debug/net8.0/osu.Game.xml
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.csproj.AssemblyReference.cache
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/osu.Game/obj/Debug/net8.0/Sentry.Attributes.cs
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.AssemblyInfoInputs.cache
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.AssemblyInfo.cs
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.csproj.CoreCompileInputs.cache
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.dll
+/workspace/osu.Game/obj/Debug/net8.0/refint/osu.Game.dll
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.xml
+/workspace/osu.Game/obj/Debug/net8.0/osu.Game.pdb
+/workspace/osu.Game/obj/Debug/net8.0/ref/osu.Game.dll
