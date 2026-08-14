@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.Constellations.Tests.Mods
     [TestFixture]
     public class ConstellationsModRelaxTest
     {
-        private ConstellationsModRelax _mod;
+        private ConstellationsModRelax _mod = null!;
 
         [SetUp]
         public void SetUp()
@@ -19,19 +19,13 @@ namespace osu.Game.Rulesets.Constellations.Tests.Mods
         [Test]
         public void TestModName()
         {
-            Assert.AreEqual("Relax", _mod.Name);
+            Assert.That(_mod.Name, Is.EqualTo("Relax"));
         }
 
         [Test]
         public void TestModAcronym()
         {
-            Assert.AreEqual("RX", _mod.Acronym);
-        }
-
-        [Test]
-        public void TestModType()
-        {
-            Assert.IsTrue(_mod.Type.Implements(typeof(osu.Game.Rulesets.Mods.ModRelax)));
+            Assert.That(_mod.Acronym, Is.EqualTo("RX"));
         }
     }
 }

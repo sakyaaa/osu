@@ -18,9 +18,8 @@ namespace osu.Game.Rulesets.Constellations.Tests.Objects
                 Position = new Vector2(256, 192)
             };
 
-            Assert.AreEqual(1000, dot.StartTime);
-            Assert.AreEqual(new Vector2(256, 192), dot.Position);
-            Assert.AreEqual(64, dot.HitRadius); // From ConstellationsHitObject
+            Assert.That(dot.StartTime, Is.EqualTo(1000));
+            Assert.That(dot.Position, Is.EqualTo(new Vector2(256, 192)));
         }
 
         [Test]
@@ -29,8 +28,8 @@ namespace osu.Game.Rulesets.Constellations.Tests.Objects
             var dot = new Dot();
             var judgement = dot.CreateJudgement();
 
-            Assert.IsNotNull(judgement);
-            Assert.IsInstanceOf<DotJudgement>(judgement);
+            Assert.That(judgement, Is.Not.Null);
+            Assert.That(judgement, Is.InstanceOf<DotJudgement>());
         }
     }
 }

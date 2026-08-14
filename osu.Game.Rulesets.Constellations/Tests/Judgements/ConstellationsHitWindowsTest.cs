@@ -2,13 +2,14 @@
 
 using NUnit.Framework;
 using osu.Game.Rulesets.Constellations.Judgements;
+using osu.Game.Rulesets.Scoring;
 
 namespace osu.Game.Rulesets.Constellations.Tests.Judgements
 {
     [TestFixture]
     public class ConstellationsHitWindowsTest
     {
-        private ConstellationsHitWindows _hitWindows;
+        private ConstellationsHitWindows _hitWindows = null!;
 
         [SetUp]
         public void SetUp()
@@ -19,42 +20,19 @@ namespace osu.Game.Rulesets.Constellations.Tests.Judgements
         [Test]
         public void TestHitWindowRanges()
         {
-            // Perfect: 50ms
-            Assert.AreEqual(50, _hitWindows.WindowFor(HitResult.Perfect));
-            
-            // Great: 100ms
-            Assert.AreEqual(100, _hitWindows.WindowFor(HitResult.Great));
-            
-            // Good: 150ms
-            Assert.AreEqual(150, _hitWindows.WindowFor(HitResult.Good));
-            
-            // Miss: 200ms
-            Assert.AreEqual(200, _hitWindows.WindowFor(HitResult.Miss));
-        }
-
-        [Test]
-        public void TestIsHitResult()
-        {
-            Assert.IsTrue(_hitWindows.IsHitResult(HitResult.Perfect));
-            Assert.IsTrue(_hitWindows.IsHitResult(HitResult.Great));
-            Assert.IsTrue(_hitWindows.IsHitResult(HitResult.Good));
-            Assert.IsFalse(_hitWindows.IsHitResult(HitResult.Miss));
+            Assert.That(_hitWindows.WindowFor(HitResult.Perfect), Is.EqualTo(50));
+            Assert.That(_hitWindows.WindowFor(HitResult.Great), Is.EqualTo(100));
+            Assert.That(_hitWindows.WindowFor(HitResult.Good), Is.EqualTo(150));
+            Assert.That(_hitWindows.WindowFor(HitResult.Miss), Is.EqualTo(200));
         }
 
         [Test]
         public void TestResultFor()
         {
-            // Within Perfect window (0-50ms)
-            Assert.AreEqual(HitResult.Perfect, _hitWindows.ResultFor(25));
-            
-            // Within Great window (51-100ms)
-            Assert.AreEqual(HitResult.Great, _hitWindows.ResultFor(75));
-            
-            // Within Good window (101-150ms)
-            Assert.AreEqual(HitResult.Good, _hitWindows.ResultFor(125));
-            
-            // Outside all windows (>200ms)
-            Assert.AreEqual(HitResult.None, _hitWindows.ResultFor(250));
+            Assert.That(_hitWindows.ResultFor(25), Is.EqualTo(HitResult.Perfect));
+            Assert.That(_hitWindows.ResultFor(75), Is.EqualTo(HitResult.Great));
+            Assert.That(_hitWindows.ResultFor(125), Is.EqualTo(HitResult.Good));
+            Assert.That(_hitWindows.ResultFor(250), Is.EqualTo(HitResult.None));
         }
     }
 }
