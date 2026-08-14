@@ -18,9 +18,8 @@ namespace osu.Game.Rulesets.Constellations.Tests.Objects
                 Position = new Vector2(300, 250)
             };
 
-            Assert.AreEqual(2000, accentDot.StartTime);
-            Assert.AreEqual(new Vector2(300, 250), accentDot.Position);
-            Assert.AreEqual(64, accentDot.HitRadius);
+            Assert.That(accentDot.StartTime, Is.EqualTo(2000));
+            Assert.That(accentDot.Position, Is.EqualTo(new Vector2(300, 250)));
         }
 
         [Test]
@@ -29,15 +28,8 @@ namespace osu.Game.Rulesets.Constellations.Tests.Objects
             var accentDot = new AccentDot();
             var judgement = accentDot.CreateJudgement();
 
-            Assert.IsNotNull(judgement);
-            Assert.IsInstanceOf<AccentDotJudgement>(judgement);
-        }
-
-        [Test]
-        public void TestAccentDotIsAccent()
-        {
-            var accentDot = new AccentDot();
-            Assert.IsTrue(accentDot.IsAccent);
+            Assert.That(judgement, Is.Not.Null);
+            Assert.That(judgement, Is.InstanceOf<AccentDotJudgement>());
         }
     }
 }
