@@ -10,6 +10,7 @@ using osu.Framework.Utils;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Sprites;
 using osu.Game.Overlays;
+using osu.Game.Utils;
 using osuTK;
 
 namespace osu.Game.Beatmaps.Drawables
@@ -76,7 +77,7 @@ namespace osu.Game.Beatmaps.Drawables
         {
             if (!Precision.AlmostEquals(starDifficulty.Stars, starDifficulty.NoModStars))
             {
-                adjustedByModsText.Text = $"This value is being adjusted by mods ({starDifficulty.NoModStars:0.0#} → {starDifficulty.Stars:0.0#}).";
+                adjustedByModsText.Text = $"This value is being adjusted by mods ({starDifficulty.NoModStars.FormatStarRating()} → {starDifficulty.Stars.FormatStarRating()}).";
                 content.Show();
             }
             else

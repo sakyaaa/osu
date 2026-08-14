@@ -4,12 +4,14 @@
 using System;
 using osu.Framework.Allocation;
 using osu.Framework.Bindables;
+using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.UserInterface;
+using osu.Framework.Utils;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Sprites;
 using osu.Game.Utils;
@@ -28,6 +30,12 @@ namespace osu.Game.Beatmaps.Drawables
         private readonly SpriteIcon starIcon;
         private readonly OsuSpriteText starsText;
         private readonly SpriteIcon valueIcon;
+        private readonly Container mainPill;
+        private readonly Container originalStarsCapsule;
+        private readonly Box originalStarsBackground;
+        private readonly SpriteIcon originalStarIcon;
+        private readonly OsuSpriteText originalStarsText;
+        private bool originalStarsShown;
 
         private readonly BindableWithCurrent<StarDifficulty> current = new BindableWithCurrent<StarDifficulty>();
 
@@ -91,64 +99,117 @@ namespace osu.Game.Beatmaps.Drawables
                     break;
             }
 
-            InternalChild = new CircularContainer
+            InternalChild = new FillFlowContainer
             {
-                Masking = true,
                 AutoSizeAxes = Axes.Both,
+                Anchor = Anchor.CentreLeft,
+                Origin = Anchor.CentreLeft,
+                Direction = FillDirection.Horizontal,
+                Spacing = new Vector2(4f, 0f),
                 Children = new Drawable[]
                 {
-                    background = new Box
+                    originalStarsCapsule = new CircularContainer
                     {
-                        RelativeSizeAxes = Axes.Both,
-                    },
-                    new GridContainer
-                    {
-                        Anchor = Anchor.Centre,
-                        Origin = Anchor.Centre,
+                        Masking = true,
                         AutoSizeAxes = Axes.Both,
-                        Margin = margin,
-                        ColumnDimensions = new[]
+                        Anchor = Anchor.CentreLeft,
+                        Origin = Anchor.CentreLeft,
+                        Alpha = 0,
+                        Children = new Drawable[]
                         {
-                            new Dimension(GridSizeMode.AutoSize),
-                            new Dimension(GridSizeMode.Absolute, 3f),
-                            new Dimension(GridSizeMode.AutoSize, minSize: 25f),
-                            new Dimension(GridSizeMode.Absolute, 2f),
-                            new Dimension(GridSizeMode.AutoSize),
-                        },
-                        RowDimensions = new[] { new Dimension(GridSizeMode.AutoSize) },
-                        Content = new[]
-                        {
-                            new[]
+                            originalStarsBackground = new Box
                             {
-                                starIcon = new SpriteIcon
+                                RelativeSizeAxes = Axes.Both,
+                            },
+                            new FillFlowContainer
+                            {
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                AutoSizeAxes = Axes.Both,
+                                Direction = FillDirection.Horizontal,
+                                Margin = new MarginPadding { Horizontal = 6f, Vertical = 2f },
+                                Spacing = new Vector2(2f, 0f),
+                                Children = new Drawable[]
                                 {
-                                    Anchor = Anchor.Centre,
-                                    Origin = Anchor.Centre,
-                                    Icon = FontAwesome.Solid.Star,
-                                    Size = new Vector2(8f),
-                                },
-                                Empty(),
-                                starsText = new OsuSpriteText
-                                {
-                                    Anchor = Anchor.Centre,
-                                    Origin = Anchor.Centre,
-                                    Margin = new MarginPadding { Bottom = 1.5f },
-                                    Spacing = new Vector2(-1.4f),
-                                    Font = OsuFont.Torus.With(size: 14.4f, weight: FontWeight.Bold, fixedWidth: true),
-                                    Shadow = false,
-                                },
-                                Empty(),
-                                valueIcon = new SpriteIcon
-                                {
-                                    Anchor = Anchor.CentreLeft,
-                                    Origin = Anchor.CentreLeft,
-                                    Margin = new MarginPadding
+                                    originalStarIcon = new SpriteIcon
                                     {
-                                        Top = -1f,
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        Icon = FontAwesome.Solid.Star,
+                                        Size = new Vector2(7f),
                                     },
-                                    Size = new Vector2(8),
+                                    originalStarsText = new OsuSpriteText
+                                    {
+                                        Anchor = Anchor.Centre,
+                                        Origin = Anchor.Centre,
+                                        Spacing = new Vector2(-1f),
+                                        Font = OsuFont.Torus.With(size: 12f, weight: FontWeight.Bold, fixedWidth: true),
+                                        Shadow = false,
+                                    },
+                                }
+                            },
+                        }
+                    },
+                    mainPill = new CircularContainer
+                    {
+                        Masking = true,
+                        AutoSizeAxes = Axes.Both,
+                        Children = new Drawable[]
+                        {
+                            background = new Box
+                            {
+                                RelativeSizeAxes = Axes.Both,
+                            },
+                            new GridContainer
+                            {
+                                Anchor = Anchor.Centre,
+                                Origin = Anchor.Centre,
+                                AutoSizeAxes = Axes.Both,
+                                Margin = margin,
+                                ColumnDimensions = new[]
+                                {
+                                    new Dimension(GridSizeMode.AutoSize),
+                                    new Dimension(GridSizeMode.Absolute, 3f),
+                                    new Dimension(GridSizeMode.AutoSize, minSize: 25f),
+                                    new Dimension(GridSizeMode.Absolute, 2f),
+                                    new Dimension(GridSizeMode.AutoSize),
                                 },
-                            }
+                                RowDimensions = new[] { new Dimension(GridSizeMode.AutoSize) },
+                                Content = new[]
+                                {
+                                    new[]
+                                    {
+                                        starIcon = new SpriteIcon
+                                        {
+                                            Anchor = Anchor.Centre,
+                                            Origin = Anchor.Centre,
+                                            Icon = FontAwesome.Solid.Star,
+                                            Size = new Vector2(8f),
+                                        },
+                                        Empty(),
+                                        starsText = new OsuSpriteText
+                                        {
+                                            Anchor = Anchor.Centre,
+                                            Origin = Anchor.Centre,
+                                            Margin = new MarginPadding { Bottom = 1.5f },
+                                            Spacing = new Vector2(-1.4f),
+                                            Font = OsuFont.Torus.With(size: 14.4f, weight: FontWeight.Bold, fixedWidth: true),
+                                            Shadow = false,
+                                        },
+                                        Empty(),
+                                        valueIcon = new SpriteIcon
+                                        {
+                                            Anchor = Anchor.CentreLeft,
+                                            Origin = Anchor.CentreLeft,
+                                            Margin = new MarginPadding
+                                            {
+                                                Top = -1f,
+                                            },
+                                            Size = new Vector2(8),
+                                        },
+                                    }
+                                }
+                            },
                         }
                     },
                 }
@@ -186,7 +247,9 @@ namespace osu.Game.Beatmaps.Drawables
 
         private void updateDisplay()
         {
-            if (Current.Value.Stars == Current.Value.NoModStars)
+            bool adjustedByMods = Current.Value.Stars != Current.Value.NoModStars;
+
+            if (!adjustedByMods)
             {
                 valueIcon.ScaleTo(0, 300, Easing.OutQuint).OnComplete(_ =>
                 {
@@ -199,6 +262,32 @@ namespace osu.Game.Beatmaps.Drawables
                 valueIcon.Icon = Current.Value.Stars > Current.Value.NoModStars ? FontAwesome.Solid.SortUp : FontAwesome.Solid.SortDown;
                 valueIcon.ScaleTo(1, 300, Easing.OutQuint);
                 valueIcon.Show();
+
+                originalStarsText.Text = Current.Value.NoModStars.FormatStarRating();
+                originalStarsBackground.Colour = colours.ForStarDifficulty(Current.Value.NoModStars).Opacity(0.45f);
+
+                var originalStarsTextColour = colours.ForStarDifficultyText(Current.Value.NoModStars).Opacity(0.75f);
+                originalStarsText.Colour = originalStarsTextColour;
+                originalStarIcon.Colour = originalStarsTextColour;
+            }
+
+            // only play the "cell division" transition when the adjusted state actually changes,
+            // since this method is invoked on every star rating change (e.g. every frame of an animated transform).
+            if (adjustedByMods == originalStarsShown)
+                return;
+
+            originalStarsShown = adjustedByMods;
+
+            if (adjustedByMods)
+            {
+                originalStarsCapsule.ScaleTo(0).FadeIn(100, Easing.OutQuint);
+                originalStarsCapsule.ScaleTo(1.2f, 200, Easing.OutQuint).Then().ScaleTo(1f, 150, Easing.OutBack);
+
+                mainPill.ScaleTo(0.9f, 100, Easing.OutQuint).Then().ScaleTo(1f, 200, Easing.OutBack);
+            }
+            else
+            {
+                originalStarsCapsule.ScaleTo(0, 200, Easing.OutQuint).FadeOut(200, Easing.OutQuint);
             }
         }
 
